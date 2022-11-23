@@ -28,12 +28,14 @@ public:
   };
 
   string getStockName( );
+  string getContentListItem( int );
   void printContentList( );
   void setContentNameSize( int );
   void setListSize( int );
+  int getListSize();
   void operator <<( const string ); 
-  void operator != (Store);
-  void operator /= (Date); 
+//  void operator != (Store);
+//  void operator /= (Date); 
   void operator = (string); 
 
 private:
@@ -45,36 +47,6 @@ private:
 
   static int listSize;
   static int contentNameSize;
-};
-
-//Classe Base
-class Database{
-  public:
-    Database( Stock );
-    Database( Store, Stock );
-    Database( const Database& );
-    ~Database();
-  private:
-    string DBName;
-
-};
-
-//Classe de Herança Simples
-class DBType: public Database{
-  public:
-    DBType();
-    DBType( Database );
-    DBType( const DBType& );
-    ~DBType();
-};
-
-//Classe de Herança Multinível
-class Language: public DBType{
-  public:
-    Language();
-    Language( DBType );
-    Language( const Language& );
-    ~Language();
 };
 
 #endif

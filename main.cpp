@@ -1,10 +1,10 @@
 #include "stock.cpp"
-#include "stock.h"
 #include "person.cpp"
 #include "person.h"
-#include "store.cpp"
-#include "store.h"
-#include "date.cpp"
+//#include "DBNR.cpp"
+#include "DB.cpp"
+#include "warehouse.cpp"
+
 #include <iostream>
 #include <string>
 #include <vector>
@@ -59,8 +59,10 @@ int main() {
   Stock1 << item4;
   Stock1.printContentList();
 
+
   cout << "\n";
-  Store store1;
+  Warehouse warehouse1;//Store store1;
+  DB dataBase1;
   cout << "\n";
 
   item1 = "";
@@ -110,37 +112,21 @@ int main() {
   cin >> stock2Category;
   Stock2 = stock2Category;
 
-  Stock2.printContentList();
+  //Stock2.printContentList();
 
-  string store2Name = "";
-  cout << "Qual loja requisitou esse estoque? ";
-  cin >> store2Name;
+  int DbType;
 
-  cout << "\n";
-  Store store2(store2Name, stock2Category);
-  cout << "\n";
+  cout << "Por favor escolha segundo as seguintes opções: "<< "\n"
+  << "BD relacional - 0" << "\n"
+  << "BD não-relacional - 1";
+  cin >> DbType;
 
-  int stock2qunt = 0;
-  cout << "Qual a quantidade requisitada pela loja? ";
-  cin >> stock2qunt;
+  DB database2(DbType);
 
-  store2 != stock2qunt;
+  if (database2.chooseDB(DbType) == 0){
+    //DBR dbr1();
+  }
 
-  int dia1;
-  int mes1;
-
-  cout << "Digite o dia e o mês atuais: ";
-  cin >> dia1;
-  cin >> mes1;
-
-  Date data(dia1,mes1);
-
-  int dataArrive[3];
-  cout << "Para qual dia e mês você precisará do estoque? ";
-  cin >> dataArrive[0];
-  cin >> dataArrive[1];
-
-  data /= dataArrive;
 
   Stock Stock3(Stock2);
   int S3ContentNameSize = 6;
@@ -181,10 +167,6 @@ int main() {
   Stock3 = stock3Category;
 
   Stock3.printContentList();
-
-  Store store3(store2);
-
-
 
   return 0;
 }

@@ -67,6 +67,10 @@ void Stock::printContentList() {
   }
 }
 
+string Stock::getContentListItem(int position){
+  return contentList[position];
+}
+
 void Stock::setContentNameSize(int contentNameSize) {
   this -> contentNameSize = contentNameSize;
 }
@@ -75,20 +79,25 @@ void Stock::setListSize(int listSize){
   this -> listSize = listSize;
 }
 
+int Stock::getListSize(){
+  return listSize;
+} 
+
 /*void Stock::listSizeChange(int listSize)*/
 void Stock::operator == (int listSize) {
   this -> listSize = listSize;
 }
 
+/*
 void operator != ( Store store, int qunt ){
     cout << "A loja" << store.getStoreName()  << " requisitou "
     << qunt << " do estoque ";
-}
-
+}*/
+/*
 void operator /= (Date date, int* dd){
   date.arrive(dd[0], dd[1], dd[2]);
 }
-
+*/
 void Stock::operator = ( string categoryName ){
   while (categoryName.size() < 3) {
     cout << "Escolha um nome com comprimento maior que 3"
@@ -100,11 +109,3 @@ void Stock::operator = ( string categoryName ){
   cout << "O estoque pertence à categoria " << categoryName << "\n";
 }
 
-//Contrutor da Classe Base
-Database::Database( Stock stk ){
-  cout << "O estoque " << stk.getStockName() << " não será armazenado em nenhum banco de dados";
-}
-
-Database::Database( Store str, Stock stk){
-  cout << "A lo"
-}
